@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+    </script>
+   
+    <!-- Link to Google Fonts for Impact font -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/fRGmS4Pn/1212121.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+        }
+
+        /* Bounce Animation for title */
+        @keyframes bounceAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            75% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 5rem;  /* تم تكبير الحجم */
+            font-family: 'Impact', sans-serif; /* Apply Impact font */
+            animation: bounceAnimation 2s infinite; /* Bounce animation continues indefinitely */
+            font-weight: bold;
+            position: relative;  /* لأجل تحريك الخط أسفل العنوان */
+            display: inline-block;
+        }
+
+        .red-text {
+            color: rgb(153, 0, 255);
+            text-shadow: 2px 2px 4px rgba(153, 0, 255, 0.6); /* Red shadow for red text */
+        }
+
+        .white-text {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6); /* White shadow for white text */
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, rgb(111, 0, 255), rgb(0, 0, 0));
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 2px solid white;
+        }
+        .navbar a {
+            font-family: 'Impact', sans-serif; /* تطبيق خط Impact */
+            font-size: 24px; /* تكبير النص */
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin: 15px;
+            width: 250px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 11px 15px rgba(255, 255, 255, 0.2); /* تأثير الظل الأساسي */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* ارتفاع بسيط عند التحويم */
+            box-shadow: 12px 25px rgba(255, 255, 255, 0.4); /* تقوية الظل عند التحويم */
+        }
+        h1::after {
+            content: ''; 
+            position: absolute;
+            bottom: -10px; /* المسافة بين العنوان والخط */
+            left: 0;
+            width: 100%;
+            height: 5px; /* سمك الخط */
+            background-color: #ae00ff;  /* لون الخط */
+            animation: bounceAnimation 2s infinite; /* نفس الأنيميشن */
+        }
+        .card img {
+            width: 50px; /* تصغير حجم الشعار */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* New CSS for "الأخبار" to make the image bigger */
+        #optimizeContent .card img {
+            width: 100%; /* Make the image fill the width of the card */
+            max-width: 120px; /* Set a maximum width for the image */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        #optionContent .card img {
+            width: 100%; /* Make the image fill the width of the card */
+            max-width: 70px; /* Set a maximum width for the image */
+            height: auto;
+            margin-bottom: 10px;
+        }
+         /* New CSS for "الأخبار" to make the image bigger */
+         #newsContent .card img {
+            width: 100%; /* Make the image fill the width of the card */
+            max-width: 80px; /* Set a maximum width for the image */
+            height: auto;
+            margin-bottom: 10px;
+        }
+         /* New CSS for "الأخبار" to make the image bigger */
+         #freeFireContent .card img {
+            width: 72%; /* Make the image fill the width of the card */
+            max-width: 100px; /* Set a maximum width for the image */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        #freeFireCheatContent .card img {
+            width: 100%; /* Make the image fill the width of the card */
+            max-width: 270px; /* Set a maximum width for the image */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .button {
+            background-color: rgba(183, 0, 255, 0.555); /* Change the background to red */
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: 'Impact', sans-serif; /* Apply Impact font */
+            box-shadow: 0 5px 5px rgba(255, 255, 255, 0.5); /* Add white shadow */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 0 8px; /* تقليل المسافة بين القوائم المنسدلة */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            margin-top: 5px; /* تقليل المسافة بين القوائم المنسدلة */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        /* New CSS for "الأخبار" to arrange cards vertically */
+        #newsContent .container {
+            flex-direction: column; /* ترتيب العناصر عموديًا */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" id="homeLink">EMULADOR</a>
+        <a href="#" id="newsLink">WINDOWS X REGEDIT</a>
+        <a href="#" id="optimizeLink">OPTIMIZE X TWEAKS</a> <!-- رابط Optimize هنا -->
+        <a href="#" id="freeFireLink">FREE FIRE VERSION</a> <!-- رابط FREE FIRE VERSION هنا -->
+        <a href="#" id="freeFireCheatLink">FREE FIRE CHEAT</a>
+        <a href="#" id="optionLink">OPTION</a>
+        
+    </div>
+
+    <!-- Title with Red and White Text with Shadows -->
+    <h1><span class="red-text">HELL</span><span class="white-text"> STORE</span></h1>
+
+    <!-- Content for "الرئيسية" -->
+    <div id="homeContent" class="container">
+        <!-- Existing Cards for MSI, Bluestacks, etc. -->
+        <div class="card">
+            <img src="https://i.postimg.cc/7hMG7dVk/R-4-removebg-preview.png" alt="MSI 4">
+            <h3>MSI 4</h3>
+            <p><strong>version: 4.280</strong></p>
+            <a href="https://www.mediafire.com/file/ge1s84oaf8hrhc1/MSI_4.280.1.6309.exe/file" class="button" target="_blank">DOWNLOAD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/TwQhQvKV/R-2.png" alt="MSI 5">
+            <h3>MSI 5</h3>
+            <p><strong>version: 5.9</strong></p>
+            <a href="https://cdn.discordapp.com/attachments/1302687270360449054/1350515488157077504/MSI_5.9.300.6315_spidmcX.exe?ex=67d7050f&is=67d5b38f&hm=7b1860769af29b8c04dc6a6bc3ddb2ea9ba0454e92339d411943df09a7ab8670&" class="button" target="_blank">DOWNLOAD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/TwQhQvKV/R-2.png" alt="MSI APP Player">
+            <h3>MSI APP Player</h3>
+            <p><strong>version: 5.21</strong></p>
+            <a href="#" class="button">DOWNLOAD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/TwQhQvKV/R-2.png" alt="MSI 12 Max">
+            <h3>MSI .12 </h3>
+            <p><strong>version: 5.12</strong></p>
+            <a href="https://cdn.discordapp.com/attachments/1302687270360449054/1350515439570128906/EMULATOR_MSI_BY_DOLLY_2.zip?ex=67d70504&is=67d5b384&hm=edd91fed87d475bf59b6aa8f26ba282c349af4f8d87161e4e40acbeb9a10add2&" class="button" target="_blank">DOWNLOAD</a>
+        </div>
+
+        <!-- New Bluestacks section -->
+        <div class="card">
+            <img src="https://i.postimg.cc/XvCw2qWw/bluestacks-1-569566.webp" alt="Bluestacks 4">
+            <h3>Bluestacks 4</h3>
+            <p><strong>version: 4.240</strong></p>
+            <a href="https://www.mediafire.com/file/wj8hwibfi60u2zh/BlueStacks_App_Player_v4.240.30.1002.exe/file" class="button" target="_blank">DOWNLOAD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/XvCw2qWw/bluestacks-1-569566.webp" alt="Bluestacks 4">
+            <h3>Bluestacks 4</h3>
+            <p><strong>version: 4.280</strong></p>
+            <a href="https://www.mediafire.com/file/5twnyv0qwyxn3u5/bluestacks-app-player-4-280-0-1022.exe/file" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/W3yJT01B/fb66abb1efeba1f10de790e34a3c0dba42d11dc6.png" alt="Bluestacks 5">
+            <h3>Bluestacks 5</h3>
+            <p><strong>version: 5.21</strong></p>
+            <a href="https://download.filepuma.com/files/desktop/bluestacks-app-player/BlueStacks_App_Player_v5.21.660.exe" class="button" target="_blank">DOWNLOAD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/W3yJT01B/fb66abb1efeba1f10de790e34a3c0dba42d11dc6.png" alt="Bluestacks 5">
+            <h3>Bluestacks 5</h3>
+            <p><strong>version: 5.12</strong></p>
+            <a href="https://download.filepuma.com/files/desktop/bluestacks-app-player/BlueStacks_App_Player_v5.12.115.exe" class="button" target="_blank">DOWNLOAD</a>
+        </div>
+
+        <!-- Discord and TikTok Cards (Only on Home Page) -->
+        <div class="card">
+            <img src="https://i.postimg.cc/CKkFzDJy/R-5-removebg-preview.png" alt="Discord">
+            <h3> Discord</h3>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO DISCORD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/VLZsTz5h/OIP-2-removebg-preview.png" alt="TikTok">
+            <h3>TikTok</h3>
+            <a href="#" class="button">GO TO TIKTOK</a>
+        </div>
+    </div>
+
+    <!-- Content for "OPTIMIZE" -->
+    <div id="optimizeContent" class="container hidden">
+        <!-- Add your content for optimize here -->
+        <div class="card">
+            <img src="https://i.postimg.cc/9QJ2QCK3/345fe2c9338d067003d8cceeae91c5a2-removebg-preview.png" alt="MSI 12 Max">
+            <h3>FOR LOW PC </h3>
+            <p><strong>PRICE: 5 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/9QJ2QCK3/345fe2c9338d067003d8cceeae91c5a2-removebg-preview.png" alt="MSI 12 Max">
+            <h3>FULL PC TWEAKS </h3>
+            <p><strong>PRICE: 8 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/9QJ2QCK3/345fe2c9338d067003d8cceeae91c5a2-removebg-preview.png" alt="MSI 12 Max">
+            <h3>FULL PC OPTIMIZE </h3>
+            <p><strong>PRICE: 5 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        
+        
+    </div>
+    <!-- Content for "FREE FIRE VERSION" -->
+<div id="freeFireContent" class="container hidden">
+    <!-- Add your content for "FREE FIRE VERSION" here -->
+    <div class="card">
+        <img src="https://i.postimg.cc/vHjgYhps/garena-free-fire-5th-anniv-icon.jpg" alt="MSI 4">
+        <h3>FREE FIRE V7A</h3>
+        <p><strong>ANTI BAN </strong></p>
+        <a href="https://www.mediafire.com/file/sb9kifwui48pfof/Free_Fire_1.109.1V7A_ATUALIZADOO.xapk/file" class="button" target="_blank">DOWNLOAD</a>
+    </div>
+    <div class="card">
+        <img src="https://i.postimg.cc/vHjgYhps/garena-free-fire-5th-anniv-icon.jpg" alt="MSI 12 Max">
+        <h3>FREE FIRE AMAZON</h3>
+        <p><strong>ANTI BAN</strong></p>
+        <a href="https://www.mediafire.com/file/2eigzurob42hahh/Free+Fire+OB48+Global+Amazon+x86+By+Apex+FF.apk/file" class="button" target="_blank">DOWNLOAD</a>
+    </div>
+</div>
+
+    <!-- Content for "الأخبار" -->
+    <div id="newsContent" class="container hidden">
+        <div class="card">
+            <img src="https://i.postimg.cc/59DWFgKX/w10p.webp" alt="MSI 4">
+            <h3>WINDOWS 10 PREMIUM</h3>
+            <p><strong>PRICE:5 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/QMKpVXF9/4503.webp" alt="MSI 5">
+            <h3>WINDOWS 10 PRO</h3>
+            <p><strong>FOR FREE</strong></p>
+            <a href="https://download.microsoft.com/download/9/e/a/9eac306f-d134-4609-9c58-35d1638c2363/MediaCreationTool_22H2.exe" class="button" target="_blank">DOWNLOAD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/0QpDdcd9/loading.gif" alt="MSI APP Player">
+            <h3>WINDOWS 11</h3>
+            <p><strong>FOR FREE</strong></p>
+            <a href="https://download.microsoft.com/download/6/8/3/683178b7-baac-4b0d-95be-065a945aadee/Windows11InstallationAssistant.exe" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/0QpDdcd9/loading.gif" alt="MSI 12 Max">
+            <h3>WINDOWS 10 V1</h3>
+            <p><strong> PRICE:5 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+
+        <!-- New Bluestacks section -->
+        <div class="card">
+            <img src="https://i.postimg.cc/tCgnYXfq/R.gif" alt="Bluestacks 4">
+            <h3>WINDOWS 11 PREMIUM</h3>
+            <p><strong>PRICE:7 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/tCgnYXfq/R.gif" alt="Bluestacks 4">
+            <h3>WINDOWS CLEANER</h3>
+            <p><strong>PRICE:2 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/tgtQ1yYt/png-transparent-gray-and-blue-cube-pixel-data-warehouse-data-mining-big-data-online-analytical-proce.png" alt="Bluestacks 5">
+            <h3>REGEDIT LOW MOUSE</h3>
+            <p><strong>FOR FREE</strong></p>
+            <a href="#" class="button">DOWNLOAD</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/tgtQ1yYt/png-transparent-gray-and-blue-cube-pixel-data-warehouse-data-mining-big-data-online-analytical-proce.png" alt="Bluestacks 5">
+            <h3>REGEDIT PREMIUM</h3>
+            <p><strong> PRICE:5 USDT</strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+        </div>
+    </div>
+    <!-- Content for "FREE FIRE CHEAT" -->
+<div id="freeFireCheatContent" class="container hidden">
+    <div class="card">
+        <img src="https://i.postimg.cc/PJjYRZmY/Capture-d-cran-49.png" alt="Discord">
+        <h3>INTERNAL PANEL</h3>
+        <p><strong>   </strong></p>
+        
+        <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+    </div>
+    <div class="card">
+        <img src="https://i.postimg.cc/Kzy1GbRy/f7bdd86edcdddb9a8071b8a576f9feaf.jpg" alt="Discord">
+        <h3>EXTERNAL PANEL</h3>
+        <p><strong></strong></p>
+        <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+    </div>
+    <div class="card">
+            <img src="https://i.postimg.cc/8CCSLn9r/f654d67199728696d61b24081791d1ca.jpg" alt="Discord">
+            <h3>PREMIUM PANEL</h3>
+            <p><strong></strong></p>
+            <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+</div>
+<div class="card">
+    <img src="https://i.postimg.cc/mkYqvQKs/d06ed3ad9e20e134cd29bcc45cb60c20.jpg" alt="Discord">
+    <h3>BASIC PANEL</h3>
+    <p><strong></strong></p>
+    <a href="https://discord.gg/6ps4RaG7un" class="button" target="_blank">GO TO BUY</a>
+
+
+    </div>
+</div>
+<!-- Content for "OPTION" -->
+<div id="optionContent" class="container hidden">
+    <div class="card">
+        <img src="https://i.postimg.cc/L8f3LXDZ/fbcb78478671d3ebb257951002df84f7-removebg-preview.png" alt="OPTION Image">
+        <h3>ANTIVIRUS FIX</h3>
+        <p><strong> Official Site</strong></p>
+        <a href="#" class="button">DOWNLOAD</a>
+    </div>
+    <div class="card">
+        <img src="https://i.postimg.cc/XvCw2qWw/bluestacks-1-569566.webp" alt="OPTION Image">
+        <h3>DISABLE HYPER V</h3>
+        <p><strong>native_v21.</strong></p>
+        <a href="#" class="button">DOWNLOAD</a>
+    </div>
+    <div class="card">
+        <img src="https://i.postimg.cc/zXYwChtS/bs-patch.webp" alt="OPTION Image">
+        <h3>BLUESTACKS TWEAKS</h3>
+        <p><strong> 5 </strong></p>
+        <a href="#" class="button">DOWNLOAD</a>
+</div>
+<div class="card">
+    <img src="https://i.postimg.cc/Z5ZcSN6K/unnamed.webp" alt="OPTION Image">
+    <h3>COLOR CHANGER</h3>
+    <p><strong> Official Site </strong></p>
+    <a href="#" class="button">DOWNLOAD</a>
+</div>
+
+
+
+
+    <script>
+    // When clicking on the home link
+document.getElementById("homeLink").addEventListener("click", function() {
+    document.getElementById("homeContent").classList.remove("hidden");
+    document.getElementById("newsContent").classList.add("hidden");
+    document.getElementById("optimizeContent").classList.add("hidden");
+    document.getElementById("freeFireContent").classList.add("hidden");
+    document.getElementById("freeFireCheatContent").classList.add("hidden");  // Hide Free Fire Cheat Content
+    document.getElementById("optionContent").classList.add("hidden");  // Show Free Fire Cheat Content
+});
+
+// When clicking on the news link
+document.getElementById("newsLink").addEventListener("click", function() {
+    document.getElementById("homeContent").classList.add("hidden");
+    document.getElementById("newsContent").classList.remove("hidden");
+    document.getElementById("optimizeContent").classList.add("hidden");
+    document.getElementById("freeFireContent").classList.add("hidden");
+    document.getElementById("freeFireCheatContent").classList.add("hidden");  // Hide Free Fire Cheat Content
+    document.getElementById("optionContent").classList.add("hidden");  // Show Free Fire Cheat Content
+});
+
+// When clicking on the optimize link
+document.getElementById("optimizeLink").addEventListener("click", function() {
+    document.getElementById("homeContent").classList.add("hidden");
+    document.getElementById("newsContent").classList.add("hidden");
+    document.getElementById("optimizeContent").classList.remove("hidden");
+    document.getElementById("freeFireContent").classList.add("hidden");
+    document.getElementById("freeFireCheatContent").classList.add("hidden");  // Hide Free Fire Cheat Content
+    document.getElementById("optionContent").classList.add("hidden");  // Show Free Fire Cheat Content
+});
+
+// When clicking on the free fire version link
+document.getElementById("freeFireLink").addEventListener("click", function() {
+    document.getElementById("homeContent").classList.add("hidden");
+    document.getElementById("newsContent").classList.add("hidden");
+    document.getElementById("optimizeContent").classList.add("hidden");
+    document.getElementById("freeFireContent").classList.remove("hidden");
+    document.getElementById("freeFireCheatContent").classList.add("hidden");  // Hide Free Fire Cheat Content
+    document.getElementById("optionContent").classList.add("hidden");  // Show Free Fire Cheat Content
+});
+
+// When clicking on the free fire cheat link
+document.getElementById("freeFireCheatLink").addEventListener("click", function() {
+    document.getElementById("homeContent").classList.add("hidden");
+    document.getElementById("newsContent").classList.add("hidden");
+    document.getElementById("optimizeContent").classList.add("hidden");
+    document.getElementById("freeFireContent").classList.add("hidden");
+    document.getElementById("freeFireCheatContent").classList.remove("hidden");  // Show Free Fire Cheat Content
+    document.getElementById("optionContent").classList.add("hidden");  // Show Free Fire Cheat Content
+});
+// When clicking on the OPTION link
+document.getElementById("optionLink").addEventListener("click", function() {
+    document.getElementById("homeContent").classList.add("hidden");
+    document.getElementById("freeFireCheatContent").classList.add("hidden");  // Hide Free Fire Cheat Content
+    document.getElementById("newsContent").classList.add("hidden");
+    document.getElementById("optimizeContent").classList.add("hidden");
+    document.getElementById("freeFireContent").classList.add("hidden");
+    document.getElementById("optionContent").classList.remove("hidden");  // Show Free Fire Cheat Content
+});
+
+
+    </script>
+</body>
+</html>
